@@ -1,0 +1,42 @@
+body{
+    margin-left: 20px;
+}
+.heading{
+    text-align: center;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.chat{
+    height: 250px;
+    width: 350px;
+    background-color: aliceblue;
+    margin: 10px 5px;
+    padding: 7px 5px;
+    border: 1px solid rgb(141, 201, 241);
+    border-radius: 10px;
+}
+.chatData{
+    background-color: dodgerblue;
+    color: white;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 12px;
+    margin: 3px 5px;
+}
+p{
+    margin: 10px 6px;
+}
+
+.btn{
+    display: flex;
+    justify-content: start;
+}
+
+.flex_btn{
+    margin-left: 10px;
+}

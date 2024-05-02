@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="heading">
+        <h3>All Chats!</h3> 
+        <form action="/chats/new" method="Get">
+           <button>Add new chat</button>
+        </form>
+    </div>
+    <br>
+    <div class="content">
+        <% for(chat of chats){ %>
+           <div class="chat">
+              <p><b>From:  </b><%= chat.from %></p>
+              <div class="chatData">
+                <p ><%= chat.message %> </p> 
+                    <form action="/chats/<%= chat._id %>/edit" method="Get">
+                        <button>Edit this Chat</button>
+                    </form>                   
+              </div>              
+              <p><b>Received by:  </b><%= chat.to %></p>
+              <hr>
+               <% if (chat.created_at) { %>
+                <p class="time"><%= chat.created_at.toString().split(" ")[4] %></p>
+                <p class="date"><%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %></p>
+               <% } %>
+              <script src="app.js"></script>
+              <div class="btn">
+                <form onclick="return checkDlt()" action="/chats/<%= chat._id %>?_method=DELETE" method="POST">
+                    <button class="flex_btn" id="delete">Delete</button>               
+                  </form> 
+                  <form action="/chats/<%= chat._id %>/show" method="GET">
+                    <button class="flex_btn">Show</button>
+                  </form>
+              </div>
+           </div>        
+        <% } %>
+        </div>
+</body>
+</html>
+
+
+    

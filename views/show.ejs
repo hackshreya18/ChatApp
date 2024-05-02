@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your Chat</title>
+    <link rel="stylesheet" href="/style2.css">
+</head>
+<body>
+    <div class="container">
+    <h3>Edit your chat:</h3>
+    <p>This chat was send from <b><%= chat.from %></b> to <b><%= chat.to %></b></p>
+    <form action="/chats" method="GET">
+        <textarea name="message" id="msg" rows="7" cols="50"><%= chat.message %></textarea>
+        <br>
+        <button>Go back</button>
+    </form>
+    </div>
+</body>
+</html>
