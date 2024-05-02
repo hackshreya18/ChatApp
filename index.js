@@ -11,24 +11,6 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
 
 app.use(express.static(path.join(__dirname , '/public')));
-// app.use('/static', express.static(path.join(__dirname, 'public')))
-
-// app.use("/chats", express.static(path.join(__dirname, "public"), {
-//     setHeaders: (res, path, stat) => {
-//         if (path.endsWith(".css")) {
-//             res.setHeader("Content-Type", "text/css",);
-//         }
-        
-//     }
-// }));
-
-// app.use("/chats/:chatId", (req, res, next) => {
-//     if (req.params.chatId) {
-//         res.setHeader("Content-Type", "text/css");
-//     }
-//     next();
-// }, express.static(path.join(__dirname, "public")));
-
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
