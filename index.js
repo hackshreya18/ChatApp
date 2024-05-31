@@ -1,7 +1,7 @@
 const express=require("express");
 const app=express();
 const path=require("path");
-const port=8000;
+const port=process.env.PORT || 8000;
 const mongoose=require("mongoose");
 const Chat=require("./models/chat");
 const methodOverride = require('method-override');
@@ -25,7 +25,11 @@ main()
 
 async function main(){
     try{
-        await mongoose.connect("mongodb://0.0.0.0:27017/ChatApp");
+        await mongoose.connect("mongodb://0.0.0.0:27017/ChatApp",{
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 20000
+        });
     }
     catch(e){
         console.log(e);
@@ -34,7 +38,7 @@ async function main(){
 }
 
 app.listen(port,()=>{
-    console.log("Server is listening to 8080 port");
+    console.log("Server is listening to 8000 port");
 });
 
 // //Home Route:
