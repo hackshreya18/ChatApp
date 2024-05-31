@@ -1,7 +1,7 @@
 const express=require("express");
 const app=express();
 const path=require("path");
-const port=8080;
+const port=8000;
 const mongoose=require("mongoose");
 const Chat=require("./models/chat");
 const methodOverride = require('method-override');
@@ -24,7 +24,13 @@ main()
 });
 
 async function main(){
-    await mongoose.connect('mongodb://127.0.0.1:27017/ChatApp');
+    try{
+        await mongoose.connect("mongodb://0.0.0.0:27017/ChatApp");
+    }
+    catch(e){
+        console.log(e);
+    }
+    
 }
 
 app.listen(port,()=>{
